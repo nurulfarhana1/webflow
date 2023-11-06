@@ -224,8 +224,9 @@ function tracking_data_mapping2_flash(data) {
 }
 function tracking_data_mapping2_lineclear(data) {
   var city = data["lineclear"];
-  var dateParts = city.LastModifiedOn.split(" ").split("/");
-  var date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+  var dateParts = city.LastModifiedOn;
+  var date = new Date(dateParts);
+  console.log(date
   $("#tracking_status").text(city?.Status || "Pending Pickup");
   $("#tracking_lastupdate").text(
     date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
